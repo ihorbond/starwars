@@ -64,6 +64,7 @@ document.getElementById('sith-selected').onclick = function() {
 };
 document.getElementById('sith-selected').onmouseover = function() {
   veider.play();
+  $('.pick-side').css('color', 'red');
 };
 document.getElementById('rebellion-selected').onclick = function() {
   playerSide = 'rebellion';
@@ -71,6 +72,7 @@ document.getElementById('rebellion-selected').onclick = function() {
 };
 document.getElementById('rebellion-selected').onmouseover = function() {
   yoda.play();
+  $('.pick-side').css('color', 'green');
 };
 document.getElementById('mute').onclick = function() {
   if (!musicVolumeOn) {
