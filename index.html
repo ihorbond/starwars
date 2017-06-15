@@ -1,70 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Base Defense</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.min.css">
-  </head>
-  <body>
-    <div class='container-fluid'>
-      <div class='row header'>
-        <div class="col-xs-3"></div>
-        <div class="col-xs-3">
-          <h1> Score: <span id='score'> </span> </h1>
-        </div>
-              <div class="col-xs-3"></div>
-              <div class="col-xs-3">
-          <h1 id='time'> Time: <span id='timer'> </span> </h1>
-        </div>
-        </div>
 
-  <div class='row'>
-    <div class="col-xs-3">
-      <ul id="menu">
-      <li><button id="new-game"><h1>New Game</h1></button></li>
-      <li><button id="instructions"><h1>Instructions</h1></button></li>
-      <li><button id="mute"><h1>Mute Audio</h1><button></li>
+<head>
+  <meta charset="utf-8">
+  <title>Base Defense</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div class='container-fluid'>
+    <div class='row header'>
+      <div class="col-xs-3"></div>
+      <div class="col-xs-3">
+        <h1> Score: <span id='score'> </span> </h1>
+      </div>
+      <div class="col-xs-3"></div>
+      <div class="col-xs-3">
+        <h1 id='time'> Time: <span id='timer'> </span> </h1>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="col-xs-3">
+        <ul id="menu">
+          <li><button id="new-game"><h1>New Game</h1></button></li>
+          <li><button id="instructions"><h1>Instructions</h1></button></li>
+          <li><button id="mute"><h1>Mute Audio</h1><button></li>
       <li><button id="about"><h1>About</h1></button></li>
-      </ul>
-</div>
- <div class="col-xs-9">
-    <canvas id="myCanvas" width="1200px" height="800px"> </canvas>
-    <div id="disclaimer">
-     <img src="img/starwarsmain.jpeg">
-    </div>
-    <div class="jumbotron">
-       <h1>Pick your side padawan</h1>
-       <div id="dark-side">
-        <button id="sith-selected"><img width="380px" height="450px" src="img/darthveider.png"></button>
+        </ul>
+      </div>
+      <div class="col-xs-9">
+        <canvas id="myCanvas" width="1200px" height="800px"> </canvas>
+        <div id="disclaimer">
+          <!-- <img src="img/starwarsmain.jpeg"> -->
+          <video id="intro" width="1350px" height="600px">
+  <source src="intro.mp4" type="video/mp4">
+  <!-- <source src="movie.ogg" type="video/ogg"> -->
+Your browser does not support the video tag.
+</video>
         </div>
-       <div id="bright-side">
-         <button id="rebellion-selected"><img width="380px" height="450px" src="img/master_yoda2.png"></button>
-         </div>
-    </div>
-      <div class="instructions"> </div>
-     <div class="about"> </div>
-     <div class="jumbotron game-over">
-     <h1> Game Over! </h1>
-     <h1> Your Score: <span id="final-score"></span></h1>
-     <h1> Highest score: <span id='highest-score'></span></h1>
-     <img id="rebellion-win" src="">
-     <img id="empire-win" src="">
-     </div>
+        <div class="jumbotron pick-side">
+          <h1>Pick your side padawan</h1>
+          <div id="dark-side">
+            <button id="sith-selected"><img width="380px" height="450px" src="img/darthveider.png"></button>
+          </div>
+          <div id="bright-side">
+            <button id="rebellion-selected"><img width="380px" height="450px" src="img/master_yoda2.png"></button>
+          </div>
+        </div>
+        <div class="instructions">
+          <ul>
+            <h1>Defend the base by destroying enemy ships.</h1><br>
+            <h1><li id="destroyship">Click or touch the enemy ship to destroy.</h1></li><br>
+            <h1><li id="baseattack">Base has a <span id="shield">blue shield</span> around it that can take <span id="nine">9</span> enemy hits before it's destroyed</h1></li><br>
+            <h1><li>May the force be with you.</h1></li>
+            <li><img src="img/destroy.gif">
+            <img src="img/base_attack.gif"></li>
 
- </div>
-</div>
-</div>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/controller.js"></script>
-    <script type="text/javascript" src="js/view.js"></script>
-    <script type="text/javascript" src="js/model.js"></script>
-  </body>
+          </ul>
+        </div>
+        <div class="about">
+          <img src="img/ironhacklogo.png">
+          <h1>Developed at Ironhack by Ihor Bodnarchuk<br>All rights reserved ®2017<br>May the force be with you</h1>
+        </div>
+        <div class="jumbotron game-over">
+          <h1> Game Over! </h1>
+          <h1> Your Score: <span id="final-score"></span></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/controller.js"></script>
+  <script type="text/javascript" src="js/view.js"></script>
+  <script type="text/javascript" src="js/model.js"></script>
+</body>
+
 </html>

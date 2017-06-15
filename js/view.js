@@ -1,32 +1,33 @@
 // $(document).ready(function() {
 // console.log('view online');
-window.onload = function() {
-  mainTheme.play();
-  $('#myCanvas').hide();
-  $('.header').hide();
-  $('.jumbotron').hide();
-  $('.instructions').hide();
-  $('.about').hide();
-  $('.game-over').hide();
-};
 var isGameOn = false;
 var musicVolumeOn = false;
-
-function gameOver() {
-  $('#myCanvas').show();
-  $('.jumbotron').hide();
+var animation;
+window.onload = function() {
+  $('#myCanvas').hide();
+  $('.header').hide();
+  $('.pick-side').hide();
   $('.instructions').hide();
   $('.about').hide();
   $('.game-over').hide();
+  intro.play();
+};
+
+function gameOver() {
+  cancelAnimationFrame(animation);
+  $('.game-over').show();
+  $('#myCanvas').hide();
+  $('.pick-side').hide();
+  $('.instructions').hide();
+  $('.about').hide();
   $('#disclaimer').hide();
-  $('.game-over').hide();
   $('#final-score').html(score);
-  $('#highest-score').html(ships.length * 200);
   if (playerSide === 'rebellion' && shieldHealth > 0 || playerSide === 'sith' && shieldHealth < 0) {
-    console.log('Empire won this battle!');
-  }
-  else {
-    console.log('Alliance won this battle!');
+    $('.game-over').append('<h1 style=\"color:red\">Empire won this battle!</h1>');
+    $('.game-over').append('<img height=\"300px\" src=\"./img/empire_win.gif\">');
+  } else {
+    $('.game-over').append('<h1 style=\"color:green\">Alliance won this battle!</h1>');
+    $('.game-over').append('<img height=\"300px\" src=\"./img/rebellion_win.gif\">');
   }
 }
 
@@ -34,23 +35,24 @@ function launch() {
   $('.header').show();
   $('#myCanvas').show();
   $('#disclaimer').hide();
-  $('.jumbotron').hide();
+  $('.pick-side').hide();
   $('.instructions').hide();
   $('about').hide();
+  mainTheme.play();
   fillShipsArrayAndBaseSetup();
-  // var animation = requestAnimationFrame(draw);
+  animation = requestAnimationFrame(draw); //starts drawing
 }
 document.getElementById('new-game').onclick = function() {
   if (!isGameOn) {
     isGameOn = true;
-    $('.jumbotron').show();
+    $('.pick-side').show();
     $('.game-over').hide();
     $('#disclaimer').hide();
     $('.instructions').hide();
     $('.header').hide();
     $('#myCanvas').hide();
     $('.about').hide();
-
+    intro.pause();
   } else {
     location.reload();
     score = 0;
@@ -82,18 +84,19 @@ document.getElementById('mute').onclick = function() {
 document.getElementById('instructions').onclick = function() {
   $('.instructions').show();
   $('#disclaimer').hide();
-  $('.jumbotron').hide();
+  $('.pick-side').hide();
   $('.header').hide();
   $('#myCanvas').hide();
   $('.about').hide();
+  $('.game-over').hide();
 };
 document.getElementById('about').onclick = function() {
   $('.about').show();
   $('#disclaimer').hide();
-  $('.jumbotron').hide();
+  $('.pick-side').hide();
   $('.instructions').hide();
   $('.header').hide();
   $('#myCanvas').hide();
+  $('.game-over').hide();
 };
-
 // });

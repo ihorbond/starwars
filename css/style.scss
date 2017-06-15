@@ -8,40 +8,67 @@
 body {
   background-color: black;
 }
-  #myCanvas {
-    border: 1px solid red;
-  }
+
+#myCanvas {
+  border: 1px solid red;
+}
+
 button {
   background: transparent;
   border: none;
 }
+
 button:hover {
   h1 {
-    color:red;
+    color: red;
   }
 }
-  h1 {
-    color: white;
-    font-family: "STARWARS";
-    padding: 0;
-    margin: 0;
-  }
-  #time {
-    margin-left: 90px;
-  }
-  #menu > li {
-    // box-shadow: 5px 5px 5px blue;
-    padding-top: 20px;
-    list-style-type: none;
-  }
-#disclaimer, .about, .instructions{
+
+h1 {
+  color: white;
+  font-family: "STARWARS";
+  padding: 0;
+  margin: 0;
+}
+
+#time {
+  margin-left: 90px;
+}
+
+#menu > li {
+  padding-top: 20px;
+  list-style-type: none;
+}
+
+.about,
+.instructions {
   box-shadow: 5px 5px 5px red;
   height: 600px;
+
+  #nine,
+  #shield {
+    color: blue;
+  }
+
+  li {
+    padding: 2px;
+  }
+
   img {
-     width:100%;
-     height:600px;
- }
+    width: 600px;
+    height: 320px;
+  }
 }
+
+.about {
+  padding-top: 100px;
+  text-align: center;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
 .jumbotron {
   color: white;
   background: black;
@@ -51,17 +78,19 @@ button:hover {
 
 #bright-side {
   opacity: 0.5;
-  float:left;
+  float: left;
 }
+
 #dark-side {
-    opacity: 0.5;
+  opacity: 0.5;
   float: right;
 }
-#dark-side:hover,
-#bright-side:hover {
+
+#bright-side:hover,
+#dark-side:hover {
   img {
-  width: 400px;
-  height: 480px;
-}
+    width: 400px;
+    height: 480px;
+  }
   opacity: 1;
 }
