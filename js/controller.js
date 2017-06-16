@@ -37,8 +37,8 @@ function ShipBuilder(shipType) {
   this.radius = 50; //length of one side since ship's pic size is 50px x 50px
   this.x = this.radius / 2;
   this.y = Math.floor((Math.random() * canvas.height - this.radius / 2) + this.radius / 2);
-  this.dx = Math.floor((Math.random() * 8) + 4);
-  this.dy = Math.floor((Math.random() * 8) + 4);
+  this.dx = Math.floor((Math.random() * 6) + 4);
+  this.dy = Math.floor((Math.random() * 6) + 4);
   this.edgeDetection = function() {
     if (this.y + this.dy + 1.5 * this.radius > canvas.height || this.y + this.dy - this.radius / 2 < 0) {
       this.dy = -this.dy;
@@ -134,8 +134,7 @@ function draw(timer) {
     ctx.drawImage(explosion2, currentShip.x, currentShip.y);
   }
   //implementing countdown timer
-  var countdown = -(Math.floor(timer / 1000) - 62); //62 not 60 because of a 2 sec delay in fillArray function
-  console.log(timer);
+  var countdown = -(Math.floor((timer-delay) / 1000) - 61); //61 not 60 because of a 2 sec delay in fillArray function
   document.getElementById('timer').innerHTML = countdown;
   if (countdown === 0 || ships.length === 0 || shieldHealth < 0) {
     gameOver(); //this function is described in view.js file

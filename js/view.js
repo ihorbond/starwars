@@ -3,6 +3,8 @@
 var isGameOn = false;
 var musicVolumeOn = false;
 var animation;
+var delay = 0;
+var pageStartTime = 0;
 window.onload = function() {
   $('#myCanvas').hide();
   $('.header').hide();
@@ -14,6 +16,7 @@ window.onload = function() {
   setTimeout(function(){
     mainTheme.play();
   },4400);
+  pageStartTime = Date.now();
 };
 
 function removeVideo(){
@@ -49,6 +52,7 @@ function launch() {
   $('about').hide();
   fillShipsArrayAndBaseSetup();
   animation = requestAnimationFrame(draw);
+  delay = Date.now() - pageStartTime;
   // animation = requestAnimationFrame(draw); //starts drawing
 }
 document.getElementById('new-game').onclick = function() {
