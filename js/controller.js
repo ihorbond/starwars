@@ -27,7 +27,7 @@ var showExplosion = false;
 var currentShip; //global variable for current ship object used to determine where to draw explosion
 mainTheme.volume = 0.5;
 mainTheme.loop = true;
-intro.volume = 0;
+// intro.volume = 0;
 document.addEventListener("mousedown", destroyShip);
 document.addEventListener("touchstart", destroyShip);
 document.getElementById('score').innerHTML = score;
@@ -108,7 +108,7 @@ function draw(timer) {
     nextMoveY = oneShip.dy + oneShip.y;
     oneShip.x += oneShip.dx;
     oneShip.y += oneShip.dy;
-    //painting circles around ships
+    //painting circles/shields around ships
     ctx.beginPath();
     ctx.arc(nextMoveX + oneShip.radius / 2, nextMoveY + oneShip.radius / 2, oneShip.radius, 0, 2 * Math.PI);
     if (playerSide === 'sith') {

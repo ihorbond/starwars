@@ -12,17 +12,17 @@ window.onload = function() {
   $('.instructions').hide();
   $('.about').hide();
   $('.game-over').hide();
-  intro.play();
+  // intro.play();
   setTimeout(function(){
     mainTheme.play();
-  },4400);
+  },4000);
   pageStartTime = Date.now();
 };
 
-function removeVideo(){
-  $('#intro').fadeOut(3000);
-  // $('#intro').remove();
-}
+// function removeVideo(){
+//   $('#crawltext').fadeOut(3000);
+//   // $('#intro').remove();
+// }
 
 function gameOver() {
   cancelAnimationFrame(animation);
@@ -60,7 +60,7 @@ document.getElementById('new-game').onclick = function() {
     isGameOn = true;
     $('.pick-side').show();
     $('.game-over').hide();
-    $('#disclaimer').hide();
+    $('#crawltext').hide();
     $('.instructions').hide();
     $('.header').hide();
     $('#myCanvas').hide();
@@ -98,7 +98,7 @@ document.getElementById('mute').onclick = function() {
 };
 document.getElementById('instructions').onclick = function() {
   $('.instructions').show();
-  $('#disclaimer').hide();
+  $('#crawltext').hide();
   $('.pick-side').hide();
   $('.header').hide();
   $('#myCanvas').hide();
@@ -109,7 +109,7 @@ document.getElementById('instructions').onclick = function() {
 };
 document.getElementById('about').onclick = function() {
   $('.about').show();
-  $('#disclaimer').hide();
+  $('#crawltext').hide();
   $('.pick-side').hide();
   $('.instructions').hide();
   $('.header').hide();
