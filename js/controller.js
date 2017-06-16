@@ -111,7 +111,12 @@ function draw(timer) {
     //painting circles around ships
     ctx.beginPath();
     ctx.arc(nextMoveX + oneShip.radius / 2, nextMoveY + oneShip.radius / 2, oneShip.radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = 'red';
+    if (playerSide === 'sith') {
+      ctx.strokeStyle = 'green';
+    }
+    else {
+      ctx.strokeStyle = 'red';
+    }
     ctx.lineWidth = 2;
     ctx.stroke();
     oneShip.edgeDetection();
@@ -124,7 +129,7 @@ function draw(timer) {
     ctx.beginPath();
     ctx.arc(600, 400, baseR + 1, 0, 2 * Math.PI);
     ctx.strokeStyle = 'red';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 3;
     ctx.stroke();
   }
   if (showExplosion) {
