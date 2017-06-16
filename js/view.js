@@ -17,17 +17,18 @@ function gameOver() {
   cancelAnimationFrame(animation);
   $('.game-over').show();
   $('#myCanvas').hide();
+  $('.header').hide();
   $('.pick-side').hide();
   $('.instructions').hide();
   $('.about').hide();
   $('#disclaimer').hide();
   $('#final-score').html(score);
-  if (playerSide === 'rebellion' && shieldHealth > 0 || playerSide === 'sith' && shieldHealth < 0) {
-    $('.game-over').append('<h1 style=\"color:red\">Empire won this battle!</h1>');
-    $('.game-over').append('<img height=\"300px\" src=\"./img/empire_win.gif\">');
-  } else {
+  if (playerSide === 'rebellion' && shieldHealth >= 0 || playerSide === 'sith' && shieldHealth < 0) {
     $('.game-over').append('<h1 style=\"color:green\">Alliance won this battle!</h1>');
     $('.game-over').append('<img height=\"300px\" src=\"./img/rebellion_win.gif\">');
+  } else {
+    $('.game-over').append('<h1 style=\"color:red\">Empire won this battle!</h1>');
+    $('.game-over').append('<img height=\"300px\" src=\"./img/empire_win.gif\">');
   }
 }
 
@@ -40,7 +41,8 @@ function launch() {
   $('about').hide();
   mainTheme.play();
   fillShipsArrayAndBaseSetup();
-  animation = requestAnimationFrame(draw); //starts drawing
+  draw();
+  // animation = requestAnimationFrame(draw); //starts drawing
 }
 document.getElementById('new-game').onclick = function() {
   if (!isGameOn) {
@@ -91,6 +93,8 @@ document.getElementById('instructions').onclick = function() {
   $('#myCanvas').hide();
   $('.about').hide();
   $('.game-over').hide();
+  intro.pause();
+  cancelAnimationFrame(animation);
 };
 document.getElementById('about').onclick = function() {
   $('.about').show();
@@ -100,5 +104,7 @@ document.getElementById('about').onclick = function() {
   $('.header').hide();
   $('#myCanvas').hide();
   $('.game-over').hide();
+  intro.pause();
+  cancelAnimationFrame(animation);
 };
 // });

@@ -32,25 +32,25 @@
           <li><button id="new-game"><h1>New Game</h1></button></li>
           <li><button id="instructions"><h1>Instructions</h1></button></li>
           <li><button id="mute"><h1>Mute Audio</h1><button></li>
-      <li><button id="about"><h1>About</h1></button></li>
+          <li><button id="about"><h1>About</h1></button></li>
         </ul>
       </div>
       <div class="col-xs-9">
         <canvas id="myCanvas" width="1200px" height="800px"> </canvas>
         <div id="disclaimer">
           <!-- <img src="img/starwarsmain.jpeg"> -->
-          <video id="intro" width="1350px" height="600px">
+          <video id="intro">
   <source src="intro.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
         </div>
         <div class="jumbotron pick-side">
-          <h1>Pick your side padawan</h1>
-          <div id="dark-side">
-            <button id="sith-selected"><img width="380px" height="450px" src="img/darthveider.png"></button>
-          </div>
+          <h1>Cho0se your ally padawan</h1>
           <div id="bright-side">
-            <button id="rebellion-selected"><img width="380px" height="450px" src="img/master_yoda2.png"></button>
+            <button id="rebellion-selected"><img src="img/master_yoda2.png"></button>
+          </div>
+          <div id="dark-side">
+            <button id="sith-selected"><img src="img/darthveider.png"></button>
           </div>
         </div>
         <div class="instructions">
@@ -63,8 +63,12 @@ Your browser does not support the video tag.
           </ul>
         </div>
         <div class="about">
-          <img src="img/ironhacklogo.png">
-          <h1>Developed at Ironhack by Ihor Bodnarchuk<br>May the force be with you</h1>
+          <a href="https://www.ironhack.com/en"><img src="img/ironhacklogo.png"></a>
+          <h1>Developed in 5 days by Ihor Bodnarchuk</h1>
+          <section id="links">
+          <a href="https://github.com/ihorbond"><img src="img/linkedin.png"></a>
+          <a href="https://www.linkedin.com/in/ibodnarchuk/"><img src="img/github.png"></a>
+        </section>
         </div>
         <div class="jumbotron game-over">
           <h1> Game Over! </h1>
@@ -76,7 +80,6 @@ Your browser does not support the video tag.
   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/controller.js"></script>
   <script type="text/javascript" src="js/view.js"></script>
-  <script type="text/javascript" src="js/model.js"></script>
 </body>
 
 </html>

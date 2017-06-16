@@ -61,11 +61,11 @@ function fillShipsArrayAndBaseSetup() {
   var intervalId = setInterval(function() {
     if (i < ships.length) {
       if (playerSide === 'rebellion') {
-        planet.src = '../starwars/img/death_star.png';
-        ships[i] = new ShipBuilder(rebellionShip);
-      } else {
         planet.src = '../starwars/img/rebellion_base.png';
         ships[i] = new ShipBuilder(sithShip);
+      } else {
+        planet.src = '../starwars/img/death_star.png';
+        ships[i] = new ShipBuilder(rebellionShip);
       }
       i++;
     } else {
@@ -134,6 +134,7 @@ function draw(timer) {
   }
   //implementing countdown timer
   var countdown = -(Math.floor(timer / 1000) - 62); //62 not 60 because of a 2 sec delay in fillArray function
+  console.log(timer);
   document.getElementById('timer').innerHTML = countdown;
   if (countdown === 0 || ships.length === 0 || shieldHealth < 0) {
     gameOver(); //this function is described in view.js file
