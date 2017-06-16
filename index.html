@@ -38,8 +38,7 @@
       <div class="col-xs-9">
         <canvas id="myCanvas" width="1200px" height="800px"> </canvas>
         <div id="disclaimer">
-          <!-- <img src="img/starwarsmain.jpeg"> -->
-          <video id="intro">
+          <video id="intro" onended="removeVideo()">
   <source src="intro.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
@@ -55,10 +54,10 @@ Your browser does not support the video tag.
         </div>
         <div class="instructions">
           <ul>
-            <h1>Defend the base by destroying enemy ships.</h1><br>
-            <h1><li id="destroyship">Click or touch the enemy ship to destroy.</h1></li><br>
-            <h1><li id="baseattack">Base has a <span id="shield">blue shield</span> around it that can take <span id="nine">9</span> enemy hits before it's destroyed</h1></li><br>
-            <h1><li>May the force be with you.</h1></li>
+            <li><h1>Defend the base by destroying enemy ships for 60 seconds.</h1></li><br>
+            <li><h1>Click or touch the enemy ship to destroy.</h1></li><br>
+            <li><h1>Base has a <span id="shield">blue shield</span> around it that can take <span id="nine">9</span> enemy hits before it's destroyed</h1></li><br>
+            <li><h1>May the force be with you.</h1></li>
             <li><img src="img/destroy.gif"></li>
           </ul>
         </div>

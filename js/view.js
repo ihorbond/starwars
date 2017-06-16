@@ -11,7 +11,15 @@ window.onload = function() {
   $('.about').hide();
   $('.game-over').hide();
   intro.play();
+  setTimeout(function(){
+    mainTheme.play();
+  },4400);
 };
+
+function removeVideo(){
+  $('#intro').fadeOut(3000);
+  // $('#intro').remove();
+}
 
 function gameOver() {
   cancelAnimationFrame(animation);
@@ -39,9 +47,8 @@ function launch() {
   $('.pick-side').hide();
   $('.instructions').hide();
   $('about').hide();
-  mainTheme.play();
   fillShipsArrayAndBaseSetup();
-  draw();
+  animation = requestAnimationFrame(draw);
   // animation = requestAnimationFrame(draw); //starts drawing
 }
 document.getElementById('new-game').onclick = function() {
@@ -82,7 +89,7 @@ document.getElementById('mute').onclick = function() {
     mainTheme.volume = 0;
   } else {
     musicVolumeOn = false;
-    mainTheme.volume = 0.3;
+    mainTheme.volume = 0.5;
   }
 };
 document.getElementById('instructions').onclick = function() {

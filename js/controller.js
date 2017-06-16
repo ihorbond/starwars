@@ -25,8 +25,9 @@ var shieldHealth = 2;
 var showCollision = false;
 var showExplosion = false;
 var currentShip; //global variable for current ship object used to determine where to draw explosion
-mainTheme.volume = 0.3;
+mainTheme.volume = 0.5;
 mainTheme.loop = true;
+intro.volume = 0;
 document.addEventListener("mousedown", destroyShip);
 document.addEventListener("touchstart", destroyShip);
 document.getElementById('score').innerHTML = score;
