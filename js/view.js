@@ -12,17 +12,11 @@ window.onload = function() {
   $('.instructions').hide();
   $('.about').hide();
   $('.game-over').hide();
-  // intro.play();
-  setTimeout(function(){
+  setTimeout(function() {
     mainTheme.play();
-  },4000);
+  }, 4000);
   pageStartTime = Date.now();
 };
-
-// function removeVideo(){
-//   $('#crawltext').fadeOut(3000);
-//   // $('#intro').remove();
-// }
 
 function gameOver() {
   cancelAnimationFrame(animation);
@@ -53,7 +47,6 @@ function launch() {
   fillShipsArrayAndBaseSetup();
   animation = requestAnimationFrame(draw);
   delay = Date.now() - pageStartTime;
-  // animation = requestAnimationFrame(draw); //starts drawing
 }
 document.getElementById('new-game').onclick = function() {
   if (!isGameOn) {
@@ -65,7 +58,6 @@ document.getElementById('new-game').onclick = function() {
     $('.header').hide();
     $('#myCanvas').hide();
     $('.about').hide();
-    intro.pause();
   } else {
     location.reload();
     score = 0;
@@ -104,7 +96,6 @@ document.getElementById('instructions').onclick = function() {
   $('#myCanvas').hide();
   $('.about').hide();
   $('.game-over').hide();
-  intro.pause();
   cancelAnimationFrame(animation);
 };
 document.getElementById('about').onclick = function() {
@@ -115,7 +106,6 @@ document.getElementById('about').onclick = function() {
   $('.header').hide();
   $('#myCanvas').hide();
   $('.game-over').hide();
-  intro.pause();
   cancelAnimationFrame(animation);
 };
 // });

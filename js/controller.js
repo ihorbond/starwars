@@ -15,7 +15,6 @@ var ships = new Array(120);
 var mainTheme = new Audio('./audio/maintheme.mp3');
 var yoda = new Audio('./audio/yoda.mp3');
 var veider = new Audio('./audio/veider.mp3');
-var intro = document.getElementById('intro');
 var playerSide;
 var baseR = 100; //base radius
 var score = 0;
@@ -27,7 +26,6 @@ var showExplosion = false;
 var currentShip; //global variable for current ship object used to determine where to draw explosion
 mainTheme.volume = 0.5;
 mainTheme.loop = true;
-// intro.volume = 0;
 document.addEventListener("mousedown", destroyShip);
 document.addEventListener("touchstart", destroyShip);
 document.getElementById('score').innerHTML = score;
@@ -113,8 +111,7 @@ function draw(timer) {
     ctx.arc(nextMoveX + oneShip.radius / 2, nextMoveY + oneShip.radius / 2, oneShip.radius, 0, 2 * Math.PI);
     if (playerSide === 'sith') {
       ctx.strokeStyle = 'green';
-    }
-    else {
+    } else {
       ctx.strokeStyle = 'red';
     }
     ctx.lineWidth = 2;
@@ -139,7 +136,7 @@ function draw(timer) {
     ctx.drawImage(explosion2, currentShip.x, currentShip.y);
   }
   //implementing countdown timer
-  var countdown = -(Math.floor((timer-delay) / 1000) - 61); //61 not 60 because of a 2 sec delay in fillArray function
+  var countdown = -(Math.floor((timer - delay) / 1000) - 61); //61 not 60 because of a 2 sec delay in fillArray function
   document.getElementById('timer').innerHTML = countdown;
   if (countdown === 0 || ships.length === 0 || shieldHealth < 0) {
     gameOver(); //this function is described in view.js file

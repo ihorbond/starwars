@@ -11,9 +11,10 @@ body {
   background-size: cover;
   background-color: black;
 }
-#crawltext img{
-  width:100%;
-  height:100%;
+
+#crawltext img {
+  width: 100%;
+  height: 100%;
 }
 
 #myCanvas {
@@ -67,7 +68,7 @@ h1 {
   }
 }
 
-#links img{
+#links img {
   width: 75px;
   height: 75px;
 }
@@ -85,29 +86,29 @@ h1 {
   }
 }
 
-
 .jumbotron {
   color: white;
   background: black;
   box-shadow: 5px 5px 5px red;
 }
+// .pick-side img {
+//   width: 100%;
+//   height: 100%;
+// }
 
 #bright-side,
 #dark-side {
   display: inline;
   opacity: 0.5;
-  img {
-   width: 100%;
-   height: 100%;
-  }
 }
-#bright-side{
-    padding-right: 20em;
+
+#bright-side {
+  padding-right: 20em;
 }
 
 #bright-side:hover,
 #dark-side:hover {
-    opacity: 1;
+  opacity: 1;
 }
 @media (min-width: 1644px) {
   body {
