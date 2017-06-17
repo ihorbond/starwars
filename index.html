@@ -5,13 +5,20 @@
   <meta charset="utf-8">
   <title>Base Defense</title>
   <link href="favicon.ico" rel="icon" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.min.css">
+
 </head>
 
 <body>
+
+  <!-- <script language="javascript" type="text/javascript">
+  window.onload = function() {
+    $('body').fadeIn(3000);
+  };
+  </script> -->
 
   <div class='container-fluid'>
     <div class='row header'>
@@ -37,26 +44,22 @@
         <canvas id="myCanvas" width="1200px" height="800px"> </canvas>
         <div id="crawltext">
           <img src='intro.gif'>
-          <!-- <video id="intro" onended="removeVideo()">
-  <source src="intro.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video> -->
         </div>
         <div class="jumbotron pick-side">
           <h1>Choose your ally padawan</h1>
-          <div id="bright-side">
-            <button id="rebellion-selected"><img src="img/master_yoda2.png"></button>
-          </div>
-          <div id="dark-side">
-            <button id="sith-selected"><img src="img/darthveider.png"></button>
-          </div>
+          <img id="yoda" src="img/master_yoda2.png">
+          <img id="veider" src="img/darthveider.png">
         </div>
         <div class="instructions">
           <ul>
-            <li><h1>Defend the base by destroying enemy ships for 60 seconds.</h1></li><br>
-            <li><h1>Click or touch the enemy ship to destroy.</h1></li><br>
-            <li><h1>Base has a <span id="shield">blue shield</span> around it that can take <span id="nine">9</span> enemy hits before it's destroyed</h1></li><br>
-            <li><h1>May the force be with you.</h1></li>
+            <li>
+              <h1>Defend the base by destroying enemy ships for 60 seconds.</h1></li><br>
+            <li>
+              <h1>Click or touch the enemy ship to destroy.</h1></li><br>
+            <li>
+              <h1>Base has a <span id="shield">blue shield</span> around it that can take <span id="nine">9</span> enemy hits before it's destroyed</h1></li><br>
+            <li>
+              <h1>May the force be with you.</h1></li>
             <li><img src="img/destroy.gif"></li>
           </ul>
         </div>
@@ -64,9 +67,9 @@ Your browser does not support the video tag.
           <a href="https://www.ironhack.com/en"><img src="img/ironhacklogo.png"></a>
           <h1>Developed in 5 days by Ihor Bodnarchuk</h1>
           <section id="links">
-          <a href="https://www.linkedin.com/in/ibodnarchuk/"><img src="img/linkedin.png"></a>
-          <a href="https://github.com/ihorbond"><img src="img/github.png"></a>
-        </section>
+            <a href="https://www.linkedin.com/in/ibodnarchuk/"><img src="img/linkedin.png"></a>
+            <a href="https://github.com/ihorbond"><img src="img/github.png"></a>
+          </section>
         </div>
         <div class="jumbotron game-over">
           <h1> Game Over! </h1>
@@ -75,8 +78,6 @@ Your browser does not support the video tag.
       </div>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-  <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/controller.js"></script>
   <script type="text/javascript" src="js/view.js"></script>

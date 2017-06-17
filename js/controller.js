@@ -10,7 +10,7 @@ var background = new Image();
 background.src = './img/background.png';
 var explosion2 = new Image();
 explosion2.src = './img/explosion2.png';
-var planet = new Image();
+var base = new Image();
 var ships = new Array(120);
 var mainTheme = new Audio('./audio/maintheme.mp3');
 var yoda = new Audio('./audio/yoda.mp3');
@@ -35,8 +35,8 @@ function ShipBuilder(shipType) {
   this.radius = 50; //length of one side since ship's pic size is 50px x 50px
   this.x = this.radius / 2;
   this.y = Math.floor((Math.random() * canvas.height - this.radius / 2) + this.radius / 2);
-  this.dx = Math.floor((Math.random() * 6) + 4);
-  this.dy = Math.floor((Math.random() * 6) + 4);
+  this.dx = Math.floor((Math.random() * 7) + 4);
+  this.dy = Math.floor((Math.random() * 7) + 4);
   this.edgeDetection = function() {
     if (this.y + this.dy + 1.5 * this.radius > canvas.height || this.y + this.dy - this.radius / 2 < 0) {
       this.dy = -this.dy;
@@ -60,10 +60,10 @@ function fillShipsArrayAndBaseSetup() {
   var intervalId = setInterval(function() {
     if (i < ships.length) {
       if (playerSide === 'rebellion') {
-        planet.src = '../starwars/img/rebellion_base.png';
+        base.src = '../starwars/img/rebellion_base.png';
         ships[i] = new ShipBuilder(sithShip);
       } else {
-        planet.src = '../starwars/img/death_star.png';
+        base.src = '../starwars/img/death_star.png';
         ships[i] = new ShipBuilder(rebellionShip);
       }
       i++;
@@ -92,10 +92,10 @@ function destroyShip(e) { //both mouse and touch event handler
 function draw(timer) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(background, 0, 0);
-  ctx.drawImage(planet, 500, 300);
+  ctx.drawImage(base, canvas.width/2 - 100, canvas.height/2 - 100);
   ctx.beginPath();
   //painting base shield
-  ctx.arc(600, 400, baseR + 2, 0, shieldHealth * Math.PI);
+  ctx.arc(canvas.width/2, canvas.height/2, baseR + 2, 0, shieldHealth * Math.PI);
   ctx.strokeStyle = 'blue';
   ctx.lineWidth = 5;
   ctx.stroke();
@@ -124,7 +124,7 @@ function draw(timer) {
       showCollision = false;
     }, 100);
     ctx.beginPath();
-    ctx.arc(600, 400, baseR + 1, 0, 2 * Math.PI);
+    ctx.arc(canvas.width/2, canvas.height/2, baseR + 1, 0, 2 * Math.PI);
     ctx.strokeStyle = 'red';
     ctx.lineWidth = 3;
     ctx.stroke();
@@ -136,7 +136,7 @@ function draw(timer) {
     ctx.drawImage(explosion2, currentShip.x, currentShip.y);
   }
   //implementing countdown timer
-  var countdown = -(Math.floor((timer - delay) / 1000) - 61); //61 not 60 because of a 2 sec delay in fillArray function
+  var countdown = -(Math.floor((timer - delay) / 1000) - 61);
   document.getElementById('timer').innerHTML = countdown;
   if (countdown === 0 || ships.length === 0 || shieldHealth < 0) {
     gameOver(); //this function is described in view.js file

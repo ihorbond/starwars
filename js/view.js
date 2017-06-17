@@ -63,19 +63,19 @@ document.getElementById('new-game').onclick = function() {
     score = 0;
   }
 };
-document.getElementById('sith-selected').onclick = function() {
+document.getElementById('veider').onclick = function() {
   playerSide = 'sith';
   launch();
 };
-document.getElementById('sith-selected').onmouseover = function() {
+document.getElementById('veider').onmouseover = function() {
   veider.play();
   $('.pick-side').css('color', 'red');
 };
-document.getElementById('rebellion-selected').onclick = function() {
+document.getElementById('yoda').onclick = function() {
   playerSide = 'rebellion';
   launch();
 };
-document.getElementById('rebellion-selected').onmouseover = function() {
+document.getElementById('yoda').onmouseover = function() {
   yoda.play();
   $('.pick-side').css('color', 'green');
 };
