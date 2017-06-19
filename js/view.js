@@ -6,12 +6,6 @@ var animation;
 var delay = 0;
 var pageStartTime = 0;
 window.onload = function() {
-  $('#myCanvas').hide();
-  $('.header').hide();
-  $('.pick-side').hide();
-  $('.instructions').hide();
-  $('.about').hide();
-  $('.game-over').hide();
   setTimeout(function() {
     mainTheme.play();
   }, 4000);
@@ -20,13 +14,12 @@ window.onload = function() {
 
 function gameOver() {
   cancelAnimationFrame(animation);
-  $('.game-over').show();
-  $('#myCanvas').hide();
-  $('.header').hide();
-  $('.pick-side').hide();
-  $('.instructions').hide();
-  $('.about').hide();
-  $('#disclaimer').hide();
+  $('.game-over').removeClass('hidden');
+  $('#myCanvas').addClass('hidden');
+  $('.header').addClass('hidden');
+  $('.pick-side').addClass('hidden');
+  $('.instructions').addClass('hidden');
+  $('.about').addClass('hidden');
   $('#final-score').html(score);
   if (playerSide === 'rebellion' && shieldHealth >= 0 || playerSide === 'sith' && shieldHealth < 0) {
     $('.game-over').append('<h1 style=\"color:green\">Alliance won this battle!</h1>');
@@ -38,12 +31,11 @@ function gameOver() {
 }
 
 function launch() {
-  $('.header').show();
-  $('#myCanvas').show();
-  $('#disclaimer').hide();
-  $('.pick-side').hide();
-  $('.instructions').hide();
-  $('about').hide();
+  $('.header').removeClass('hidden');
+  $('#myCanvas').removeClass('hidden');
+  $('.pick-side').addClass('hidden');
+  $('.instructions').addClass('hidden');
+  $('about').addClass('hidden');
   fillShipsArrayAndBaseSetup();
   animation = requestAnimationFrame(draw);
   delay = Date.now() - pageStartTime;
@@ -51,13 +43,13 @@ function launch() {
 document.getElementById('new-game').onclick = function() {
   if (!isGameOn) {
     isGameOn = true;
-    $('.pick-side').show();
-    $('.game-over').hide();
-    $('#crawltext').hide();
-    $('.instructions').hide();
-    $('.header').hide();
-    $('#myCanvas').hide();
-    $('.about').hide();
+    $('.pick-side').removeClass('hidden');
+    $('.game-over').addClass('hidden');
+    $('#crawltext').addClass('hidden');
+    $('.instructions').addClass('hidden');
+    $('.header').addClass('hidden');
+    $('#myCanvas').addClass('hidden');
+    $('.about').addClass('hidden');
   } else {
     location.reload();
     score = 0;
@@ -89,23 +81,23 @@ document.getElementById('mute').onclick = function() {
   }
 };
 document.getElementById('instructions').onclick = function() {
-  $('.instructions').show();
-  $('#crawltext').hide();
-  $('.pick-side').hide();
-  $('.header').hide();
-  $('#myCanvas').hide();
-  $('.about').hide();
-  $('.game-over').hide();
+  $('.instructions').removeClass('hidden');
+  $('#crawltext').addClass('hidden');
+  $('.pick-side').addClass('hidden');
+  $('.header').addClass('hidden');
+  $('#myCanvas').addClass('hidden');
+  $('.about').addClass('hidden');
+  $('.game-over').addClass('hidden');
   cancelAnimationFrame(animation);
 };
 document.getElementById('about').onclick = function() {
-  $('.about').show();
-  $('#crawltext').hide();
-  $('.pick-side').hide();
-  $('.instructions').hide();
-  $('.header').hide();
-  $('#myCanvas').hide();
-  $('.game-over').hide();
+  $('.about').removeClass('hidden');
+  $('#crawltext').addClass('hidden');
+  $('.pick-side').addClass('hidden');
+  $('.instructions').addClass('hidden');
+  $('.header').addClass('hidden');
+  $('#myCanvas').addClass('hidden');
+  $('.game-over').addClass('hidden');
   cancelAnimationFrame(animation);
 };
 // });

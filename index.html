@@ -21,7 +21,7 @@
   </script> -->
 
   <div class='container-fluid'>
-    <div class='row header'>
+    <div class='row header hidden'>
       <div class="col-xs-3"></div>
       <div class="col-xs-3">
         <h1> Score: <span id='score'> </span> </h1>
@@ -41,16 +41,16 @@
         </ul>
       </div>
       <div class="col-xs-9">
-        <canvas id="myCanvas" width="1200px" height="800px"> </canvas>
+        <canvas class="hidden" id="myCanvas" width="1200px" height="800px"> </canvas>
         <div id="crawltext">
           <img src='intro.gif'>
         </div>
-        <div class="jumbotron pick-side">
+        <div class="jumbotron pick-side hidden">
           <h1>Choose your ally padawan</h1>
           <img id="yoda" src="img/master_yoda2.png">
           <img id="veider" src="img/darthveider.png">
         </div>
-        <div class="instructions">
+        <div class="instructions hidden">
           <ul>
             <li>
               <h1>Defend the base by destroying enemy ships for 60 seconds.</h1></li><br>
@@ -63,7 +63,7 @@
             <li><img src="img/destroy.gif"></li>
           </ul>
         </div>
-        <div class="about">
+        <div class="about hidden">
           <a href="https://www.ironhack.com/en"><img src="img/ironhacklogo.png"></a>
           <h1>Developed in 5 days by Ihor Bodnarchuk</h1>
           <section id="links">
@@ -71,7 +71,7 @@
             <a href="https://github.com/ihorbond"><img src="img/github.png"></a>
           </section>
         </div>
-        <div class="jumbotron game-over">
+        <div class="jumbotron game-over hidden">
           <h1> Game Over! </h1>
           <h1> Your Score: <span id="final-score"></span></h1>
         </div>
